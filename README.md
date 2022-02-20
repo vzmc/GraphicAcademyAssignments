@@ -1,2 +1,1 @@
-# GraphicAcademy
-GraphicAcademy課題
+# GraphicAcademy_Day01の課題
