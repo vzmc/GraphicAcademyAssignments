@@ -1,4 +1,4 @@
-# GraphicAcademy_Day01の課題
+# UnityScriptingMeshGenerator
 
 ## プロジェクト情報
 - version: 2021.2.12f1
