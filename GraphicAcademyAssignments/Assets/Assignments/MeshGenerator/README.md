@@ -1,8 +1,4 @@
-# UnityScriptingMeshGenerator
-
-## プロジェクト情報
-- version: 2021.2.12f1
-- Rendering Pipeline: URP
+# MeshGenerator
 
 ## スクリプト球体メッシュ生成
 ### 動的で球体のポリゴン数がいじれる
