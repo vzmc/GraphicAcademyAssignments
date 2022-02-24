@@ -1,6 +1,6 @@
 # MeshGenerator
+## スクリプトで球体メッシュ生成
 
-## スクリプト球体メッシュ生成
 ### 動的で球体のポリゴン数がいじれる
 https://user-images.githubusercontent.com/6869650/154848653-714377ff-8db6-4ec8-990a-243d8b778d1e.mp4
 
