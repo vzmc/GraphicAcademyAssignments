@@ -5,11 +5,7 @@
 - Rendering Pipeline: URP
 
 ## 課題リンク
-### 動的メッシュ生成
-https://github.com/vzmc/GraphicAcademyAssignments/tree/feature/change_structure/GraphicAcademyAssignments/Assets/Assignments/MeshGenerator
-
-### カメラ空間確認
-https://github.com/vzmc/GraphicAcademyAssignments/tree/feature/change_structure/GraphicAcademyAssignments/Assets/Assignments/CameraSpaceCheck
-
-### 透視投影変換の可視化確認
-https://github.com/vzmc/GraphicAcademyAssignments/tree/feature/change_structure/GraphicAcademyAssignments/Assets/Assignments/ProjectSimulation
+### Day1
+- [動的メッシュ生成](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments/Assets/Assignments/Day1/MeshGenerator)
+- [カメラ空間確認](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments/Assets/Assignments/Day1/CameraSpaceCheck)
+- [透視投影変換の可視化](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments/Assets/Assignments/Day1/ProjectSimulation)
