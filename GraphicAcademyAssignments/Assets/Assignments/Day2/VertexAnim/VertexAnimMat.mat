@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: VertexColorShader
-  m_Shader: {fileID: 4800000, guid: e078af180f879bc4193281c0c5609f97, type: 3}
+  m_Name: VertexAnimMat
+  m_Shader: {fileID: 4800000, guid: eb660581b17cca04298bfb4556ce9402, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,10 +20,13 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3fa19d48cae319a4fa268b72d14e15af, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _Amplitude: 1
+    - _Frequency: 1
+    - _WaveSpeed: 1
     m_Colors: []
   m_BuildTextureStacks: []
