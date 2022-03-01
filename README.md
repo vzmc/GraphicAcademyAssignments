@@ -1,7 +1,7 @@
 # GraphicAcademyAssignments
 
 ## プロジェクト情報
-- version: 2021.2.12f1
+- version: 2021.2.9f1
 - Rendering Pipeline: URP
 
 ## 課題リンク
