@@ -1,11 +1,12 @@
-Shader "GraphicAcademy/VertexAnimShader"
+Shader "GraphicAcademy/VertexAnimShader2"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Amplitude ("Amplitude", Range(0, 2)) = 1
-        _Frequency ("Frequency", Range(0, 2)) = 1
-        _WaveSpeed ("WaveSpeed", Range(0, 2)) = 1
+        _Frequency ("Frequency", Range(0, 100)) = 1
+        _WaveSpeed ("WaveSpeed", Range(0, 10)) = 1
+        _Direction ("Direction", Vector) = (0.5, 0.5, 0, 0)
     }
     SubShader
     {
@@ -24,6 +25,7 @@ Shader "GraphicAcademy/VertexAnimShader"
             struct appdata
             {
                 float4 vertex : POSITION;
+                float3 normal : NORMAL;
                 float2 uv : TEXCOORD0;
             };
 
@@ -37,15 +39,19 @@ Shader "GraphicAcademy/VertexAnimShader"
             float4 _MainTex_ST;
 
             float _Amplitude;
-            float _WaveSpeed;
             float _Frequency;
+            float _WaveSpeed;
+            float2 _Direction;
 
             v2f vert (appdata v)
             {
                 v2f o;
 
                 float4 vertex = v.vertex;
-                vertex.y = _Amplitude * sin(_Frequency * vertex.x + _WaveSpeed * _Time.y);
+                float2 direction = normalize(_Direction);
+                float2 uv = v.uv * direction;
+                float len = uv.x + uv.y;
+                vertex.xyz = vertex.xyz + _Amplitude * sin(_Frequency * len + _WaveSpeed * _Time.y) * v.normal;
 
                 o.vertex = UnityObjectToClipPos(vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
