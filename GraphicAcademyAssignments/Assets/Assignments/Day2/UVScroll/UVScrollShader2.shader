@@ -1,20 +1,19 @@
-Shader "GraphicAcademy/VertexAnimShader2"
+Shader "GraphicAcademy/UVScrollShader2"
 {
-    // 調整できるSinWave
+    // UVScroll + SinWave
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Direction ("Direction", Vector) = (0, 1, 0, 0)
+        _ScrollSpeed ("ScrollSpeed", Range(0, 2)) = 1
         _NormalOffset ("NormalOffset", Range(-10, 10)) = 0
         _Amplitude ("Amplitude", Range(0, 5)) = 1
         _Frequency ("Frequency", Range(0, 100)) = 1
         _WaveSpeed ("WaveSpeed", Range(0, 10)) = 1
-        _Direction ("Direction", Vector) = (0.5, 0.5, 0, 0)
     }
     SubShader
     {
         Tags { "RenderType"="Opaque" }
-
-        Cull Off
 
         Pass
         {
@@ -39,23 +38,25 @@ Shader "GraphicAcademy/VertexAnimShader2"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
-
+            float2 _Direction;
+            float _ScrollSpeed;
             float _NormalOffset;
             float _Amplitude;
             float _Frequency;
             float _WaveSpeed;
-            float2 _Direction;
 
             v2f vert (appdata v)
             {
-                float4 vertex = v.vertex;
                 float2 dir = normalize(_Direction);
-                float2 uv = v.uv * dir;
-                vertex.xyz = vertex.xyz + (_Amplitude * sin(_Frequency * (uv.x + uv.y) + _WaveSpeed * _Time.y) + _NormalOffset) * v.normal;
+                float2 uv = v.uv + dir * _Time.y * _ScrollSpeed;
+
+                float4 vertex = v.vertex;
+                float2 waveUV = v.uv * dir;
+                vertex.xyz = vertex.xyz + (_Amplitude * sin(_Frequency * (waveUV.x + waveUV.y) + _WaveSpeed * _Time.y) + _NormalOffset) * v.normal;
 
                 v2f o;
                 o.vertex = UnityObjectToClipPos(vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                o.uv = TRANSFORM_TEX(uv, _MainTex);
                 return o;
             }
 
