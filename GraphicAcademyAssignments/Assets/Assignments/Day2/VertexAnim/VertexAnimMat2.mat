@@ -25,11 +25,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 0.03
+    - _Amplitude: 1
     - _Direction_X: 0.23
     - _Direction_Y: 0
-    - _Frequency: 20
-    - _WaveSpeed: 5
+    - _Frequency: 10
+    - _NormalOffset: 5
+    - _WaveSpeed: 2
     - _WaveSpeed_X: 0
     - _WaveSpeed_Y: 1
     m_Colors:
