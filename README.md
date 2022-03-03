@@ -15,3 +15,5 @@
 - [頂点カラー](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments/Assets/Assignments/Day2/VertexColor)
 - [頂点アニメーション](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments/Assets/Assignments/Day2/VertexAnim)
 - [UVスクロール](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments/Assets/Assignments/Day2/UVScroll)
+- [スプライトアニメーション](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments/Assets/Assignments/Day2/SpriteAnim)
+- [UI用カラー加算](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments/Assets/Assignments/Day2/ColorAdditive)
