@@ -1,5 +1,6 @@
 Shader "GraphicAcademy/VertexAnimShader2"
 {
+    // 調整できるSinWave
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
