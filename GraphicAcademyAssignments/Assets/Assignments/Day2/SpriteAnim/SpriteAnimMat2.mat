@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpriteAnimMat
-  m_Shader: {fileID: 4800000, guid: 7a990ee69802bdc4091da0fc045672e0, type: 3}
+  m_Name: SpriteAnimMat2
+  m_Shader: {fileID: 4800000, guid: bf821c924755bb64db22fa6812f6a603, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,16 +20,13 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6cc9b59d1d2ec65469258c5490b0c2cf, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3d6e91b33def5c34e8095a796077e621, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Height: 8
-    - _HeightSeparate: 8
-    - _Sec: 1
-    - _TimePerFrame: 0.2
-    - _Width: 8
-    - _WidthSeparate: 8
+    - _HeightSeparate: 4
+    - _TimePerFrame: 0.1
+    - _WidthSeparate: 4
     m_Colors: []
   m_BuildTextureStacks: []
