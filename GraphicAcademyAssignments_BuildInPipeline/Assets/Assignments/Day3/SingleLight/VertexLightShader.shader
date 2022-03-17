@@ -75,4 +75,5 @@ Shader "GraphicAcademy/VertexLightShader"
             ENDCG
         }
     }
+    FallBack "Standard"
 }

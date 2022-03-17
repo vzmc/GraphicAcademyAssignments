@@ -73,4 +73,5 @@ Shader "GraphicAcademy/FragmentLightShader"
             ENDCG
         }
     }
+    FallBack "Standard"
 }

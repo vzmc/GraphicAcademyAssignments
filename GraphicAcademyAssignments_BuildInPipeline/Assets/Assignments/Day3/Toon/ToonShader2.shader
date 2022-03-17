@@ -18,6 +18,14 @@ Shader "GraphicAcademy/ToonShader"
         {
             Tags { "LightMode"="ForwardBase" }
 
+            Stencil
+            {
+                Ref 1
+                Comp Always
+                Pass Replace
+                ZFail Keep
+            }
+
             Cull Back
 
             CGPROGRAM
@@ -99,6 +107,14 @@ Shader "GraphicAcademy/ToonShader"
         Pass
         {
             Name "OUTLINE"
+            
+            Stencil
+            {
+                Ref 1
+                Comp NotEqual
+                Pass Keep
+                ZFail Keep
+            }
 
             Cull Front
 
@@ -130,7 +146,7 @@ Shader "GraphicAcademy/ToonShader"
                 // ViewSpaceで頂点を拡張する
                 float4 posVS = float4(UnityObjectToViewPos(v.vertex), 1.0);
                 float3 normal = mul((float3x3)UNITY_MATRIX_IT_MV, v.normal);
-                normal.z = -1;
+                normal.z = -0.5;
                 posVS = posVS + float4(normalize(normal), 0) * _Outline;
                 o.posCS = mul(UNITY_MATRIX_P, posVS);
 
@@ -144,6 +160,7 @@ Shader "GraphicAcademy/ToonShader"
 
             ENDCG
         }
+
     }
     FallBack "Standard"
 }

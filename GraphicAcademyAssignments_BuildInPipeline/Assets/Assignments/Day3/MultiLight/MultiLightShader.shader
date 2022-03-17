@@ -165,4 +165,5 @@ Shader "GraphicAcademy/MultiLightShader"
             ENDCG
         }
     }
+    FallBack "Standard"
 }
