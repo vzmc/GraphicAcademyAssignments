@@ -75,8 +75,10 @@ Shader "GraphicAcademy/MultiLightShader"
 
             fixed4 frag (v2f i) : SV_Target
             {
+                i.normalWS = normalize(i.normalWS);
+
                 // 環境光色
-                fixed3 ambient = unity_AmbientSky.xyz;
+                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
 
                 // 世界空間の法線方向とライト方向
                 //half3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);

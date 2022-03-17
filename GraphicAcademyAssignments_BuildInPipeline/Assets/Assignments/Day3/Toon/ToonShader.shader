@@ -24,7 +24,6 @@ Shader "GraphicAcademy/ToonShader"
 
             #pragma vertex vert
             #pragma fragment frag
-
             #pragma multi_compile_fwdbase
 
             #include "UnityCG.cginc"
@@ -72,20 +71,24 @@ Shader "GraphicAcademy/ToonShader"
                 float3 worldViewDir = normalize(UnityWorldSpaceViewDir(i.posWS));
                 float3 worldHalfDir = normalize(worldLightDir + worldViewDir);
 
+                // 自身の色
                 fixed4 texColor = tex2D (_MainTex, i.uv);
                 fixed3 albedo = texColor.rgb * _Color.rgb;
 
+                // 環境光
                 fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
 
+                // 拡散反射光
                 float diff =  dot(normalWS, worldLightDir);
                 diff = (diff * 0.5 + 0.5);
-
                 fixed3 diffuse = _LightColor0.rgb * tex2D(_Ramp, float2(diff, diff)).rgb;
 
+                // 鏡面反射光
                 float spec = dot(normalWS, worldHalfDir);
                 float w = fwidth(spec) * 2.0;
                 fixed3 specular = _Specular.rgb * lerp(0, 1, smoothstep(-w, w, spec + _SpecularScale - 1)) * step(0.0001, _SpecularScale);
 
+                // 最終合成色
                 fixed3 finalColor = (ambient + diffuse) * albedo + specular;
                 return fixed4(finalColor, 1.0);
             }
@@ -124,6 +127,7 @@ Shader "GraphicAcademy/ToonShader"
             {
                 v2f o;
 
+                // ViewSpaceで頂点を拡張する
                 float4 posVS = float4(UnityObjectToViewPos(v.vertex), 1.0);
                 float3 normal = mul((float3x3)UNITY_MATRIX_IT_MV, v.normal);
                 normal.z = -0.5;
