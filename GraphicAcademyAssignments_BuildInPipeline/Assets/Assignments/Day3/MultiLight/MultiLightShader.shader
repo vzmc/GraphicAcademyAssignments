@@ -41,9 +41,9 @@ Shader "GraphicAcademy/MultiLightShader"
 
             struct v2f 
             {
-                float4 posHCS : SV_POSITION;
-                float4 posW : TEXCOORD1;
-                float3 normalW : NORMAL;
+                float4 posCS : SV_POSITION;
+                float4 posWS : TEXCOORD1;
+                float3 normalWS : NORMAL;
                 float2 uv : TEXCOORD0;
                 fixed3 lightColorNotImportent : COLOR;
             };
@@ -51,9 +51,9 @@ Shader "GraphicAcademy/MultiLightShader"
             v2f vert(appdata v) 
             {
                 v2f o;
-                o.posHCS = UnityObjectToClipPos(v.vertex);
-                o.posW = mul(unity_ObjectToWorld, v.vertex);
-                o.normalW = UnityObjectToWorldNormal(v.normal);
+                o.posCS = UnityObjectToClipPos(v.vertex);
+                o.posWS = mul(unity_ObjectToWorld, v.vertex);
+                o.normalWS = UnityObjectToWorldNormal(v.normal);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.lightColorNotImportent = 0;
 
@@ -64,10 +64,10 @@ Shader "GraphicAcademy/MultiLightShader"
                             unity_4LightPosX0, unity_4LightPosY0, unity_4LightPosZ0,
                             unity_LightColor[0].xyz, unity_LightColor[1].xyz, unity_LightColor[2].xyz, unity_LightColor[3].xyz,
                             unity_4LightAtten0,
-                            o.posW, o.normalW);
+                            o.posWS, o.normalWS);
                     #endif
                     // それ以上のライトは球面調和ライトになる
-                    o.lightColorNotImportent += max(0, ShadeSH9(float4(o.normalW, 1)));
+                    o.lightColorNotImportent += max(0, ShadeSH9(float4(o.normalWS, 1)));
                 #endif
 
                 return o;
@@ -80,14 +80,14 @@ Shader "GraphicAcademy/MultiLightShader"
 
                 // 世界空間の法線方向とライト方向
                 //half3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
-                half3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.posW));
+                half3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.posWS));
                 // 拡散反射光色
-                fixed3 diffuse = _LightColor0.rgb * saturate(dot(i.normalW, worldLightDir));
+                fixed3 diffuse = _LightColor0.rgb * saturate(dot(i.normalWS, worldLightDir));
 
                 // 鏡面反射光
-                half3 reflectDir = normalize(reflect(-worldLightDir, i.normalW));
-                //half3 viewDir = normalize(_WorldSpaceCameraPos - i.posW.xyz);
-                half3 viewDir = normalize(UnityWorldSpaceViewDir(i.posW.xyz));
+                half3 reflectDir = normalize(reflect(-worldLightDir, i.normalWS));
+                //half3 viewDir = normalize(_WorldSpaceCameraPos - i.posWS.xyz);
+                half3 viewDir = normalize(UnityWorldSpaceViewDir(i.posWS.xyz));
                 fixed3 specular = _LightColor0.rgb * pow(saturate(dot(reflectDir, viewDir)), _Gloss);
 
                 // 平行光減衰しない
@@ -113,18 +113,18 @@ Shader "GraphicAcademy/MultiLightShader"
 
             struct v2f 
             {
-                float4 posHCS : SV_POSITION;
-                float4 posW : TEXCOORD1;
-                float3 normalW : NORMAL;
+                float4 posCS : SV_POSITION;
+                float4 posWS : TEXCOORD1;
+                float3 normalWS : NORMAL;
                 float2 uv : TEXCOORD0;
             };
 
             v2f vert(appdata v) 
             {
                 v2f o;
-                o.posHCS = UnityObjectToClipPos(v.vertex);
-                o.posW = mul(unity_ObjectToWorld, v.vertex);
-                o.normalW = UnityObjectToWorldNormal(v.normal);
+                o.posCS = UnityObjectToClipPos(v.vertex);
+                o.posWS = mul(unity_ObjectToWorld, v.vertex);
+                o.normalWS = UnityObjectToWorldNormal(v.normal);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 return o;
             }
@@ -133,22 +133,22 @@ Shader "GraphicAcademy/MultiLightShader"
             {
                 // 世界空間のライト方向
                 //half3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
-                half3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.posW));
+                half3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.posWS));
                 // 拡散反射光色
-                fixed3 diffuse = _LightColor0.rgb * saturate(dot(i.normalW, worldLightDir));
+                fixed3 diffuse = _LightColor0.rgb * saturate(dot(i.normalWS, worldLightDir));
 
                 // 鏡面反射光
-                half3 reflectDir = normalize(reflect(-worldLightDir, i.normalW));
-                //half3 viewDir = normalize(_WorldSpaceCameraPos - i.posW.xyz);
-                half3 viewDir = normalize(UnityWorldSpaceViewDir(i.posW.xyz));
+                half3 reflectDir = normalize(reflect(-worldLightDir, i.normalWS));
+                //half3 viewDir = normalize(_WorldSpaceCameraPos - i.posWS.xyz);
+                half3 viewDir = normalize(UnityWorldSpaceViewDir(i.posWS.xyz));
                 fixed3 specular = _LightColor0.rgb * pow(saturate(dot(reflectDir, viewDir)), _Gloss);
 
                 // 光の減衰
                 #ifdef POINT
-                    float3 lightCoord = mul(unity_WorldToLight, i.posW).xyz;
+                    float3 lightCoord = mul(unity_WorldToLight, i.posWS).xyz;
                     fixed atten = tex2D(_LightTexture0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
                 #elif SPOT
-                    float4 lightCoord = mul(unity_WorldToLight, i.posW);
+                    float4 lightCoord = mul(unity_WorldToLight, i.posWS);
                     fixed atten = (lightCoord.z > 0) * tex2D(_LightTexture0, lightCoord.xy / lightCoord.w + 0.5).w * tex2D(_LightTextureB0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
                 #else
                     fixed atten = 1.0;
