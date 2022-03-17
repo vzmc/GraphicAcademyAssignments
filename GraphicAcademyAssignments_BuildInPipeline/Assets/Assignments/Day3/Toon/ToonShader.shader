@@ -12,7 +12,7 @@ Shader "GraphicAcademy/ToonShader"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" "Queue"="Geometry"}
+        Tags { "RenderType"="Opaque" }
 
         Pass
         {
@@ -50,7 +50,7 @@ Shader "GraphicAcademy/ToonShader"
                 float4 posCS : SV_POSITION;
                 float2 uv : TEXCOORD0;
                 float3 normalWS : NORMAL;
-                float3 posWS : TEXCOORD2;
+                float3 posWS : TEXCOORD1;
             };
 
             v2f vert (appdata v)
