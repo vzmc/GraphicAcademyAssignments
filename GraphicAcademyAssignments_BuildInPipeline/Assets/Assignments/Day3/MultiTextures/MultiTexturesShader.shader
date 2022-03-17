@@ -72,8 +72,8 @@ Shader "GraphicAcademy/MultiTexturesShader"
 
                 fixed3 diffuse = _LightColor0.rgb * saturate(dot(i.normalWS, worldLightDir));
 
-                fixed specularMask = tex2D(_SpecularMask, i.uv).r * _SpecularScale;
                 fixed3 specular = _LightColor0.rgb * pow(saturate(dot(normalWS, worldHalfDir)), _Gloss);
+                fixed specularMask = tex2D(_SpecularMask, i.uv).r * _SpecularScale;
 
                 fixed3 finalColor = (ambient * aoMask + diffuse + specular * specularMask) * albedo;
                 return fixed4(finalColor, 1.0);
