@@ -19,7 +19,7 @@
 - [UI用カラー加算](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments/Assets/Assignments/Day2/ColorAdditive)
 
 ### Day3
-URPのShaderでライト処理方法はよくわからないため、Day3の課題はBuild-in Pipelineで作成した
+URPのShaderでライト処理方法がまだよくわからないため、Day3の課題はBuild-in Pipelineで作成した
 - [シングルライト](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/SingleLight)
 - [マルチライト](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/MultiLight)
 - [Toonシェーダ](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/Toon)
