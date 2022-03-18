@@ -70,4 +70,8 @@ fixed3 finalColor = (ambient + diffuse) * albedo + specular;
 
 
 ## FragmentLight と VertexLight 
-![image](https://user-images.githubusercontent.com/6869650/158852550-82a09a67-6efe-4936-bd8c-00e504547b91.png)
+上述のライト処理はFragmentShader内で処理するもので、画素ごとにライト処理をして、滑らか結果になるが、処理コストもかかる
+あまり重要ではないライト処理をVertexShader内にさせて、頂点ごとにライト色を計算して、頂点間の色を自動補間させて画素ごとの色を出すことによって、
+雑な色になるが、処理コストが結構軽くなる
+
+![image](https://user-images.githubusercontent.com/6869650/158935953-28078f9a-70ba-46bb-b45a-bac441394d1b.png)
