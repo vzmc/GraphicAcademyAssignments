@@ -20,6 +20,7 @@
 
 ### Day3
 URPのShaderでライト処理方法がまだよくわからないため、Day3の課題はBuild-in Pipelineで作成した
+READMEまだ更新中
 - [シングルライト](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/SingleLight)
 - [マルチライト](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/MultiLight)
 - [Toonシェーダ](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/Toon)
