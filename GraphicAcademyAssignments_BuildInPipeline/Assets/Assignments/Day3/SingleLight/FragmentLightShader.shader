@@ -51,8 +51,11 @@ Shader "GraphicAcademy/FragmentLightShader"
 
             fixed4 frag (v2f i) : SV_Target
             {
+                // 自身の色
+                fixed3 albedo = tex2D(_MainTex, i.uv) * _Color;
+
                 // 環境光色
-                fixed3 ambient = unity_AmbientSky.xyz;
+                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
 
                 // 世界空間のライト方向
                 half3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.posWS));
@@ -60,15 +63,18 @@ Shader "GraphicAcademy/FragmentLightShader"
                 // 拡散反射光色
                 fixed3 diffuse = _LightColor0.rgb * saturate(dot(i.normalWS, worldLightDir));
 
+                // 世界空間のライト反射方向と視線方向
+                half3 worldReflectDir = normalize(reflect(-worldLightDir, i.normalWS));
+                half3 worldViewDir = normalize(_WorldSpaceCameraPos - i.posWS.xyz);
+
                 // 鏡面反射光
-                half3 reflectDir = normalize(reflect(-worldLightDir, i.normalWS));
-                half3 viewDir = normalize(_WorldSpaceCameraPos - i.posWS.xyz);
-                fixed3 specular = _LightColor0.rgb * pow(saturate(dot(reflectDir, viewDir)), _Gloss);
+                fixed3 specular = _LightColor0.rgb * pow(saturate(dot(worldReflectDir, worldViewDir)), _Gloss);
 
-                fixed3 lightColor = ambient + diffuse + specular;
+                // 最終色
+                // (ambient + diffuse) * albedo + specular
+                fixed3 finalColor = (ambient + diffuse + specular) * albedo;
 
-                fixed4 col = tex2D(_MainTex, i.uv) * _Color * fixed4(lightColor, 1);
-                return col;
+                return fixed4(finalColor, 1);
             }
             ENDCG
         }
