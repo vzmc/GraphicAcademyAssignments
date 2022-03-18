@@ -76,3 +76,8 @@ fixed3 finalColor = (ambient + diffuse) * albedo + specular;
 雑な色になるが、処理コストが結構軽くなる
 
 ![image](https://user-images.githubusercontent.com/6869650/158935953-28078f9a-70ba-46bb-b45a-bac441394d1b.png)
+
+## 影の投射
+物体から影を投射するには、ShadowCasterのPassを実装する必要はあるが、
+最後のところにUnityビルドインの影を投射するShaderにFallBackしておくと、Shadow CasterのPassを書かなくてもFallBack先のShaderのShadowCasterが適用される
+https://github.com/vzmc/GraphicAcademyAssignments/blob/2234d2360566b98f74b04ced345ad71bbd65e0b9/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/SingleLight/FragmentLightShader.shader#L82
