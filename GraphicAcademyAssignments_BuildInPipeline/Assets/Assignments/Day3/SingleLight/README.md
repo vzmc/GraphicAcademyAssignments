@@ -56,5 +56,18 @@ https://github.com/vzmc/GraphicAcademyAssignments/blob/2234d2360566b98f74b04ced3
 ![image](https://user-images.githubusercontent.com/6869650/158931086-98ffbbd7-1e5d-44ff-b2ca-bb06118cb463.png)
 ![image](https://user-images.githubusercontent.com/6869650/158930981-586c2d86-5f23-4648-8fe7-7b36ec295fa1.png)
 
+前述のSpecularは自身の色に影響されるもので、もしSpecularを自身の色に影響したくないなら、
+最終色を合成計算の時、Specularを切り離しAlbedoと乗算しなければよい。
+そうすることで結構明るい鏡面反射光が得られて、より滑らかな質感を表すことができる
+```
+fixed3 finalColor = (ambient + diffuse) * albedo + specular; 
+```
+![image](https://user-images.githubusercontent.com/6869650/158931865-998db034-0eab-4a82-a1f1-3f37d0a928f9.png)
+
+### 完成したシェーダにテクスチャも付けて、モデルに適用するとこうなる
+
+![image](https://user-images.githubusercontent.com/6869650/158932235-9ed4f6f6-51d1-4a86-9684-e6661ca08418.png)
+
+
 ## FragmentLight と VertexLight 
 ![image](https://user-images.githubusercontent.com/6869650/158852550-82a09a67-6efe-4936-bd8c-00e504547b91.png)
