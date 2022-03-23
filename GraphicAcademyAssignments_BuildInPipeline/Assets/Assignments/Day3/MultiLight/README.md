@@ -50,3 +50,6 @@ Unityでのライト減衰値はライト減衰テクスチャの保存されて
 https://github.com/vzmc/GraphicAcademyAssignments/blob/102f3c30195ce455c16cccc51aababd195304b30/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/MultiLight/MultiLightShader.shader#L10-L101
 `CGINCLUDE ~ ENDCG`で共通に使われる部分を囲むと、全Passに自動インクルードするため重複定義がなくなって、コードが簡潔になる。
 また、`CGINCLUDE ~ ENDCG`の定義はShader直下に定義すると全SubShader共通になり、SubShader直下に定義するとそのSubShader内の全Pass共通になる
+
+`CGINCLUDE ~ ENDCG`を使うことによって、SubShaderがすごく簡潔になる
+https://github.com/vzmc/GraphicAcademyAssignments/blob/102f3c30195ce455c16cccc51aababd195304b30/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/MultiLight/MultiLightShader.shader#L103-L130
