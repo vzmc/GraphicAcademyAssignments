@@ -3,7 +3,7 @@
 ![image](https://user-images.githubusercontent.com/6869650/159719201-bd65c56f-bde2-469e-99af-b870f06139ce.png)
 
 ## マルチライト対応するには2つのPassを作る
-### 平行光、非重要ライトを処理するForwardBase Pass
+### 平行光、非重要ライトを処理するためForwardBase Passを作る
 https://github.com/vzmc/GraphicAcademyAssignments/blob/102f3c30195ce455c16cccc51aababd195304b30/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/MultiLight/MultiLightShader.shader#L109
 PassのTagsに`"LightMode"="ForwardBase"`を入れれば、そのPassはForwardBaseになる
 
@@ -34,3 +34,18 @@ https://github.com/vzmc/GraphicAcademyAssignments/blob/102f3c30195ce455c16cccc51
 https://github.com/vzmc/GraphicAcademyAssignments/blob/102f3c30195ce455c16cccc51aababd195304b30/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/MultiLight/MultiLightShader.shader#L60
 `ShadeSH9`の関数を使えば残りの非重要ライトが球面調和ライトとして処理される
 `ShadeSH9`の関数も同じく`UnityCG.cginc`に定義されている
+
+### ForwardBase PassのフラグメントシェーダにはSingleLightの時と同様に自身とライトの色を処理する
+https://github.com/vzmc/GraphicAcademyAssignments/blob/102f3c30195ce455c16cccc51aababd195304b30/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/MultiLight/MultiLightShader.shader#L68-L81
+
+### 平行光以外の重要ライトを処理するためForwardAdd Passを作る
+https://github.com/vzmc/GraphicAcademyAssignments/blob/102f3c30195ce455c16cccc51aababd195304b30/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/MultiLight/MultiLightShader.shader#L109
+PassのTagsに`"LightMode"="ForwardAdd"`を入れれば、そのPassはForwardAddになる
+
+### ForwardAdd Passのフラグメントシェーダに光の減衰も考慮する
+https://github.com/vzmc/GraphicAcademyAssignments/blob/102f3c30195ce455c16cccc51aababd195304b30/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/MultiLight/MultiLightShader.shader#L83-L93
+Unityでのライト減衰値はライト減衰テクスチャの保存されてあり、ライトとフラグメントの距離をUV値とし、減衰テクスチャをサンプリングした結果の中にある`UNITY_ATTEN_CHANNEL`がその減衰値となる。またPointライトとSpotライトの減衰テクスチャのを取得する方法は異なる。
+
+## 全Passに共通で使われる部分重複定義しないために
+`CGINCLUDE ~ ENDCG`で共通に使われる部分を囲むと、全Passに自動インクルードするため重複定義がなくなって、コードが簡潔になる。
+また、`CGINCLUDE ~ ENDCG`の定義はShader直下に定義すると全SubShader共通になり、SubShader直下に定義するとそのSubShader内の全Pass共通になる
