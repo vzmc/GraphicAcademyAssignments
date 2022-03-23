@@ -1,4 +1,4 @@
-# マルチライト対応 (README更新中)
+# マルチライト対応
 ## 重要ライト、非重要ライトともに対応したShader
 ![image](https://user-images.githubusercontent.com/6869650/159719201-bd65c56f-bde2-469e-99af-b870f06139ce.png)
 
@@ -47,5 +47,6 @@ https://github.com/vzmc/GraphicAcademyAssignments/blob/102f3c30195ce455c16cccc51
 Unityでのライト減衰値はライト減衰テクスチャの保存されてあり、ライトとフラグメントの距離をUV値とし、減衰テクスチャをサンプリングした結果の中にある`UNITY_ATTEN_CHANNEL`がその減衰値となる。またPointライトとSpotライトの減衰テクスチャのを取得する方法は異なる。
 
 ## 全Passに共通で使われる部分重複定義しないために
+https://github.com/vzmc/GraphicAcademyAssignments/blob/102f3c30195ce455c16cccc51aababd195304b30/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/MultiLight/MultiLightShader.shader#L10-L101
 `CGINCLUDE ~ ENDCG`で共通に使われる部分を囲むと、全Passに自動インクルードするため重複定義がなくなって、コードが簡潔になる。
 また、`CGINCLUDE ~ ENDCG`の定義はShader直下に定義すると全SubShader共通になり、SubShader直下に定義するとそのSubShader内の全Pass共通になる
