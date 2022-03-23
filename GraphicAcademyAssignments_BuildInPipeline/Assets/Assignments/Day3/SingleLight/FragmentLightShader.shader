@@ -72,7 +72,7 @@ Shader "GraphicAcademy/FragmentLightShader"
 
                 // 最終色
                 // (ambient + diffuse) * albedo + specular
-                fixed3 finalColor = (ambient + diffuse + specular) * albedo;
+                fixed3 finalColor = (ambient + diffuse + specular) * albedo; 
 
                 return fixed4(finalColor, 1);
             }
