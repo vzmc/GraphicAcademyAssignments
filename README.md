@@ -26,3 +26,8 @@ READMEまだ更新中
 - [マルチライト](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/MultiLight)
 - [Toonシェーダ](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/Toon)
 - [各種マスクテクスチャ](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/MultiTextures)
+
+### Day4
+READMEまだ更新中
+- [各種テクスチャ対応のShaderGraph](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments/Assets/Assignments/Day4/MultiTextureShaderGraph)
+- [ShaderGraphで作ったToonShader](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments/Assets/Assignments/Day4/ToonShaderGraph)
