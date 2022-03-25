@@ -27,3 +27,6 @@ GetMainLight();
 
 ### SubGraph: ToonSpecular
 ![image](https://user-images.githubusercontent.com/6869650/159939819-26a179ff-99ec-4c41-be8a-082deadeb116.png)
+
+Specular値計算するGraph一見複雑だが、コードで表すとこうなる
+https://github.com/vzmc/GraphicAcademyAssignments/blob/81d43e8e55075f5441a72df7b2d9ba4a9ff92a3b/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day3/Toon/ToonShader.shader#L86-L89
