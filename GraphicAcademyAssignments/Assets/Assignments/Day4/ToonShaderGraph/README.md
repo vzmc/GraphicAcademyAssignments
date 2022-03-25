@@ -7,15 +7,14 @@
 
 ## ShaderGraph一覧
 ### MainGraph
-![image](https://user-images.githubusercontent.com/6869650/159939329-00bcf561-946a-457f-96bc-3431bc14190c.png)
 ToonShaderを作るために、MasterStackをUnlitにして、最終Colorのみ受け取るFragment Nodeに設定する。
+![image](https://user-images.githubusercontent.com/6869650/159939329-00bcf561-946a-457f-96bc-3431bc14190c.png)
+
 
 ### SubGraph: ToonAlbedo
 ![image](https://user-images.githubusercontent.com/6869650/159939458-caee3a70-d846-4753-8e4d-2a8a6632994e.png)
 
 ### SubGraph: ToonDiffuse
-![image](https://user-images.githubusercontent.com/6869650/159939632-f8d0c038-43ed-45ce-9fe5-4a76dba9d8fb.png)
-
 光の取得はCustom Functionを使う
 
 Custom Functonは任意コードを実行することができて、そこからUnityが提供するライブラリから光情報を取得できる
@@ -24,6 +23,7 @@ GetMainLight();
 ```
 ![image](https://user-images.githubusercontent.com/6869650/160115625-e94a704f-0223-4310-bca2-79c9e8a69762.png)
 ![image](https://user-images.githubusercontent.com/6869650/160115648-8f67fd5c-ea83-43b4-9b02-db804753ceb6.png)
+![image](https://user-images.githubusercontent.com/6869650/159939632-f8d0c038-43ed-45ce-9fe5-4a76dba9d8fb.png)
 
 ### SubGraph: ToonSpecular
 ![image](https://user-images.githubusercontent.com/6869650/159939819-26a179ff-99ec-4c41-be8a-082deadeb116.png)
