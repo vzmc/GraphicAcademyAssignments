@@ -1,5 +1,9 @@
 # ToonShaderGraph
-![image](https://user-images.githubusercontent.com/6869650/159939012-de43a07a-1550-4fb3-bfc5-9234673ef4d6.png)
+![image](https://user-images.githubusercontent.com/6869650/159939012-de43a07a-1550-4fb3-bfc5-9234673ef4d6.png)![image](https://user-images.githubusercontent.com/6869650/160114317-4dfb7712-9138-4150-a5e3-d1f33d7cd689.png)
+
+
+## SubGraph機能について
+プログラムの関数のように、InputとOutputを決めて、機能分けて処理手続きをラップしてSubGraphを作っておくと、MainGraphが簡潔に保てる
 
 ## ShaderGraph一覧
 ### MainGraph
