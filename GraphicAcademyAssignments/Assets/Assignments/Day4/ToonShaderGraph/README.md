@@ -35,6 +35,7 @@ https://github.com/vzmc/GraphicAcademyAssignments/blob/81d43e8e55075f5441a72df7b
 こちらのspec値計算はBlinn-Phoneモデルを使ている
 
 次にsmoothstepとfwidthを使ってるのはSpecularライト部分のAnti-Aliasingを付けるため
+
 使わないと縁側にジグザグになるが
 ![image](https://user-images.githubusercontent.com/6869650/160120868-8cd3a9b6-409d-4f19-8056-292bfed210a2.png)
 
