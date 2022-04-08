@@ -57,5 +57,6 @@ https://github.com/vzmc/GraphicAcademyAssignments/blob/02f2b85853f3c802e8fb64751
 https://github.com/vzmc/GraphicAcademyAssignments/blob/02f2b85853f3c802e8fb64751e0b86f5d762b4eb/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day6/Dither/DitherShader.shader#L57-L59
 
 ## 参考資料
-https://light11.hatenadiary.com/entry/2018/07/31/234555
-https://light11.hatenadiary.com/entry/2018/07/26/205513
+
+- https://light11.hatenadiary.com/entry/2018/07/31/234555
+- https://light11.hatenadiary.com/entry/2018/07/26/205513
