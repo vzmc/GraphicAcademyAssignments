@@ -56,7 +56,19 @@ https://github.com/vzmc/GraphicAcademyAssignments/blob/02f2b85853f3c802e8fb64751
 ## 最後に、サンプリングしたディザ値でClip処理する
 https://github.com/vzmc/GraphicAcademyAssignments/blob/02f2b85853f3c802e8fb64751e0b86f5d762b4eb/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day6/Dither/DitherShader.shader#L57-L59
 
-## 参考資料
+## ちゃんと透過するため、Render QueueをTransparentに設定する必要がある
+Render QueueをTransparentに設定しないと、すべての不透明描画の後に処理されるライトマップ、リフレクションなどの情報はなくなる
 
+![image](https://user-images.githubusercontent.com/6869650/162456163-76462e2a-74b2-41ab-b86d-ba8d939813a2.png)
+
+Render QueueをTransparentに設定すれば、ライトマップ、リフレクションなどの情報がちゃんとあって、透過は正しくなる
+
+![image](https://user-images.githubusercontent.com/6869650/162456013-483b7b7f-5c3f-4018-9e98-172daedd70be.png)
+
+![image](https://user-images.githubusercontent.com/6869650/162456208-2c59ba6a-4e85-4875-9cec-d509e3dca962.png)
+
+
+
+## 参考資料
 - https://light11.hatenadiary.com/entry/2018/07/31/234555
 - https://light11.hatenadiary.com/entry/2018/07/26/205513
