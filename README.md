@@ -31,3 +31,10 @@ READMEまだ更新中
 READMEまだ更新中
 - [各種テクスチャ対応のShaderGraph](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments/Assets/Assignments/Day4/MultiTextureShaderGraph)
 - [ShaderGraphで作ったToonShader](https://github.com/vzmc/GraphicAcademyAssignments/tree/master/GraphicAcademyAssignments/Assets/Assignments/Day4/ToonShaderGraph)
+
+### Day5
+作成中...
+
+### Day6
+- [ディザ処理](https://github.com/vzmc/GraphicAcademyAssignments/blob/master/GraphicAcademyAssignments_BuildInPipeline/Assets/Assignments/Day6/Dither/README.md)
+- 他まだ作成中...
